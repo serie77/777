@@ -496,6 +496,8 @@ body {
     filter: contrast(1.1) brightness(0.9);
     z-index: 3;
     position: relative;
+    transform: scale(0.95);
+    transform-origin: center;
 }
 
 .banner-particles {
