@@ -1,0 +1,1421 @@
+@font-face {
+    font-family: 'Amoria';
+    src: url('AMORIA.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --mystic-black: #0a0a0a;
+    --mystic-white: #ffffff;
+    --mystic-gold: #d4af37;
+    --mystic-red: #dc143c;
+    --poker-green: #1a5f3f;
+    --mist-gray: #f8f9fa;
+    --shadow-purple: #4a148c;
+}
+
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--mystic-black);
+    color: var(--mystic-white);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Mystical Entrance */
+.mystical-entrance {
+    width: 100vw;
+    min-height: 100vh;
+    background: 
+        radial-gradient(ellipse 200% 100% at 50% 100%, transparent 20%, var(--mystic-black) 80%),
+        linear-gradient(180deg, var(--mystic-black) 0%, #0f0f0f 50%, #050505 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.mist-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle 800px at 50% 50%, rgba(212, 175, 55, 0.02) 0%, transparent 50%),
+        radial-gradient(circle 600px at 20% 80%, rgba(220, 20, 60, 0.01) 0%, transparent 50%),
+        radial-gradient(circle 600px at 80% 20%, rgba(255, 255, 255, 0.01) 0%, transparent 50%);
+    animation: mistFlow 20s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes mistFlow {
+    0%, 100% { opacity: 0.5; transform: translateY(0); }
+    50% { opacity: 0.8; transform: translateY(-20px); }
+}
+
+.stars-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, white, transparent),
+        radial-gradient(2px 2px at 40px 70px, white, transparent),
+        radial-gradient(1px 1px at 50px 160px, white, transparent),
+        radial-gradient(1px 1px at 130px 40px, white, transparent),
+        radial-gradient(2px 2px at 140px 200px, white, transparent);
+    background-size: 200px 200px;
+    background-repeat: repeat;
+    opacity: 0.02;
+    animation: starsGlimmer 10s linear infinite;
+}
+
+@keyframes starsGlimmer {
+    0%, 100% { opacity: 0.02; }
+    50% { opacity: 0.05; }
+}
+
+.entrance-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
+
+.mystical-header {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.mystical-777 {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 20px;
+    position: relative;
+    perspective: 1000px;
+}
+
+.seven {
+    font-family: 'Amoria', 'Bebas Neue', sans-serif;
+    font-size: 8rem;
+    font-weight: normal;
+    color: transparent;
+    background: linear-gradient(135deg, var(--mystic-gold) 0%, #fff59d 25%, var(--mystic-gold) 50%, #ffd54f 75%, var(--mystic-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
+    position: relative;
+    display: inline-block;
+    animation: sevenGlow 3s ease-in-out infinite;
+    transform-style: preserve-3d;
+}
+
+.seven::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: transparent;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.3) 0%, transparent 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: blur(3px);
+    z-index: -1;
+    transform: translateZ(-10px);
+}
+
+.seven.first {
+    animation-delay: 0s;
+    transform: rotateY(-15deg);
+}
+
+.seven.second {
+    animation-delay: 0.2s;
+    transform: scale(1.1);
+}
+
+.seven.third {
+    animation-delay: 0.4s;
+    transform: rotateY(15deg);
+}
+
+@keyframes sevenGlow {
+    0%, 100% { 
+        filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5)) drop-shadow(0 0 40px rgba(212, 175, 55, 0.3));
+        transform: translateY(0) scale(1);
+    }
+    50% { 
+        filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.7)) drop-shadow(0 0 60px rgba(212, 175, 55, 0.4));
+        transform: translateY(-5px) scale(1.02);
+    }
+}
+
+.mystical-tagline {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.8s forwards;
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeInUp 1s ease 1s forwards;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--mystic-gold);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    border-color: var(--mystic-gold);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+}
+
+.social-icon:hover::before {
+    opacity: 1;
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+    z-index: 2;
+}
+
+.fortune-machine {
+    position: relative;
+    background: 
+        linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 20px;
+    padding: 50px 60px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.machine-glow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.1) 50%, transparent 70%);
+    border-radius: 20px;
+    opacity: 0;
+    animation: borderGlow 3s linear infinite;
+    z-index: -1;
+}
+
+@keyframes borderGlow {
+    0% { opacity: 0; transform: rotate(0deg); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: rotate(360deg); }
+}
+
+.card-deck {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    margin-bottom: 50px;
+    perspective: 1000px;
+}
+
+.poker-card {
+    width: 80px;
+    height: 120px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.card-inner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 40%, rgba(212, 175, 55, 0.05) 50%, transparent 60%);
+    transform: rotate(45deg);
+    animation: cardShimmer 3s linear infinite;
+}
+
+@keyframes cardShimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.card-face {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--mystic-gold);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    margin-bottom: 5px;
+}
+
+.card-suit {
+    font-size: 1.5rem;
+    opacity: 0.6;
+}
+
+.poker-card:nth-child(2) .card-suit {
+    color: var(--mystic-red);
+}
+
+.poker-card:hover {
+    transform: translateY(-10px) rotateY(10deg) rotateX(5deg);
+}
+
+.poker-card.spinning {
+    animation: cardFlip 0.2s linear infinite;
+}
+
+@keyframes cardFlip {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+.poker-card.winning .card-inner {
+    background: 
+        linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 50%, rgba(212, 175, 55, 0.2) 100%);
+    box-shadow: 
+        0 0 50px rgba(212, 175, 55, 0.5),
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.mystical-btn {
+    background: linear-gradient(135deg, var(--mystic-black) 0%, #1a1a1a 100%);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    padding: 20px 50px;
+    color: var(--mystic-gold);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(212, 175, 55, 0.1);
+}
+
+.btn-shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.mystical-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(212, 175, 55, 0.2),
+        inset 0 1px 0 rgba(212, 175, 55, 0.2);
+    border-color: rgba(212, 175, 55, 0.5);
+}
+
+.mystical-btn:hover .btn-shimmer {
+    left: 100%;
+}
+
+.entrance-fog {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to top, var(--mystic-black) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+/* Main Realm */
+.main-realm {
+    display: none;
+    opacity: 0;
+    background: var(--mystic-black);
+}
+
+.main-realm.visible {
+    display: block;
+    opacity: 1;
+    animation: realmReveal 1.5s ease;
+}
+
+@keyframes realmReveal {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ethereal Banner */
+.ethereal-banner {
+    width: 100vw;
+    height: 45vh;
+    min-height: 300px;
+    max-height: 450px;
+    position: relative;
+    overflow: hidden;
+    background: 
+        radial-gradient(ellipse 150% 80% at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
+        linear-gradient(180deg, #0a0a0a 0%, var(--mystic-black) 20%, #0f0f0f 80%, var(--mystic-black) 100%);
+}
+
+.ethereal-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(90deg, 
+            rgba(0, 0, 0, 0.4) 0%, 
+            transparent 20%, 
+            transparent 80%, 
+            rgba(0, 0, 0, 0.4) 100%),
+        linear-gradient(180deg, 
+            rgba(0, 0, 0, 0.6) 0%, 
+            transparent 20%, 
+            transparent 80%, 
+            rgba(0, 0, 0, 0.6) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.banner-mist {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    background: 
+        radial-gradient(circle 800px at 30% 50%, rgba(212, 175, 55, 0.06) 0%, transparent 50%),
+        radial-gradient(circle 600px at 70% 30%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+        radial-gradient(circle 700px at 50% 70%, rgba(212, 175, 55, 0.04) 0%, transparent 50%);
+    animation: bannerMist 15s ease-in-out infinite;
+    filter: blur(40px);
+    z-index: 1;
+}
+
+@keyframes bannerMist {
+    0%, 100% { 
+        opacity: 0.5; 
+        transform: rotate(0deg) scale(1);
+    }
+    33% { 
+        opacity: 0.8; 
+        transform: rotate(120deg) scale(1.2);
+    }
+    66% { 
+        opacity: 0.6; 
+        transform: rotate(240deg) scale(0.9);
+    }
+}
+
+.divine-banner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.85;
+    filter: contrast(1.1) brightness(0.9);
+    z-index: 3;
+    position: relative;
+}
+
+.banner-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
+    overflow: hidden;
+}
+
+.banner-particles::before,
+.banner-particles::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.banner-particles::before {
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, rgba(212, 175, 55, 0.4), transparent),
+        radial-gradient(1px 1px at 40px 70px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 50px 160px, rgba(212, 175, 55, 0.2), transparent),
+        radial-gradient(2px 2px at 130px 100px, rgba(255, 255, 255, 0.2), transparent);
+    background-size: 300px 300px;
+    background-repeat: repeat;
+    animation: particleFloat 25s linear infinite;
+}
+
+.banner-particles::after {
+    background-image: 
+        radial-gradient(1px 1px at 60px 10px, rgba(212, 175, 55, 0.3), transparent),
+        radial-gradient(2px 2px at 90px 80px, rgba(255, 255, 255, 0.25), transparent),
+        radial-gradient(1px 1px at 150px 120px, rgba(212, 175, 55, 0.35), transparent);
+    background-size: 200px 200px;
+    background-repeat: repeat;
+    animation: particleFloat 30s linear infinite reverse;
+    opacity: 0.8;
+}
+
+@keyframes particleFloat {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-100%, -100px) rotate(10deg); }
+}
+
+/* Fortune Portal */
+.fortune-portal {
+    padding: 120px 20px;
+    position: relative;
+    background: 
+        radial-gradient(ellipse 150% 100% at 50% 0%, rgba(212, 175, 55, 0.02) 0%, transparent 50%),
+        linear-gradient(180deg, var(--mystic-black) 0%, #0a0a0a 100%);
+    overflow: hidden;
+}
+
+.portal-mist {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    background: 
+        radial-gradient(circle 600px at 30% 50%, rgba(255, 255, 255, 0.01) 0%, transparent 50%),
+        radial-gradient(circle 800px at 70% 50%, rgba(212, 175, 55, 0.01) 0%, transparent 50%);
+    animation: portalMist 15s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes portalMist {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+}
+
+.portal-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.portal-header {
+    margin-bottom: 80px;
+}
+
+.portal-777 {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 30px;
+    perspective: 1000px;
+}
+
+.portal-seven {
+    font-family: 'Amoria', 'Bebas Neue', sans-serif;
+    font-size: 6rem;
+    font-weight: normal;
+    color: transparent;
+    background: linear-gradient(135deg, var(--mystic-gold) 0%, #fff59d 25%, var(--mystic-gold) 50%, #ffd54f 75%, var(--mystic-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    display: inline-block;
+    animation: portalSevenGlow 3s ease-in-out infinite;
+    transform-style: preserve-3d;
+}
+
+.portal-seven.first {
+    animation-delay: 0s;
+    transform: rotateY(-10deg);
+}
+
+.portal-seven.second {
+    animation-delay: 0.3s;
+    transform: scale(1.08);
+}
+
+.portal-seven.third {
+    animation-delay: 0.6s;
+    transform: rotateY(10deg);
+}
+
+@keyframes portalSevenGlow {
+    0%, 100% { 
+        filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6)) drop-shadow(0 0 30px rgba(212, 175, 55, 0.4));
+        transform: translateY(0) scale(1);
+    }
+    50% { 
+        filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.8)) drop-shadow(0 0 50px rgba(212, 175, 55, 0.5));
+        transform: translateY(-3px) scale(1.01);
+    }
+}
+
+.portal-whisper {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.main-social-icons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.main-social {
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--mystic-gold);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.main-social::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.main-social:hover {
+    transform: translateY(-3px);
+    border-color: var(--mystic-gold);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.main-social:hover::before {
+    opacity: 1;
+}
+
+.main-social svg {
+    width: 22px;
+    height: 22px;
+    z-index: 2;
+}
+
+.portal-gates {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 80px;
+    flex-wrap: wrap;
+}
+
+.gate-card {
+    position: relative;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.gate-inner {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 25px 60px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.gate-text {
+    color: var(--mystic-white);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+}
+
+.gate-sparkle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 50% 50%, transparent 30%, rgba(255, 255, 255, 0.05) 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.bonk-gate .gate-inner {
+    background: linear-gradient(135deg, rgba(255, 140, 0, 0.1) 0%, rgba(255, 140, 0, 0.05) 100%);
+    border-color: rgba(255, 140, 0, 0.2);
+}
+
+.bonk-gate:hover .gate-inner {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 15px 50px rgba(255, 140, 0, 0.2),
+        0 10px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 140, 0, 0.4);
+}
+
+.dex-gate:hover .gate-inner {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 15px 50px rgba(255, 255, 255, 0.1),
+        0 10px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.gate-card:hover .gate-sparkle {
+    opacity: 1;
+}
+
+.mystic-contract {
+    position: relative;
+    display: inline-block;
+}
+
+.contract-aura {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+    filter: blur(20px);
+    animation: auraGlow 4s ease-in-out infinite;
+}
+
+@keyframes auraGlow {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+.contract-content {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 20px;
+    padding: 40px 50px;
+    position: relative;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.contract-label {
+    font-size: 0.85rem;
+    color: var(--mystic-gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+.contract-reveal {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contract-code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px 25px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.copy-mystical {
+    background: linear-gradient(135deg, var(--mystic-black) 0%, #1a1a1a 100%);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 10px;
+    padding: 15px 30px;
+    color: var(--mystic-gold);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.copy-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.copy-mystical:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+}
+
+.copy-mystical:hover .copy-glow {
+    opacity: 1;
+}
+
+/* Poker Legend */
+.poker-legend {
+    padding: 140px 20px;
+    position: relative;
+    background: 
+        radial-gradient(ellipse 200% 100% at 50% 100%, rgba(26, 95, 63, 0.02) 0%, transparent 60%),
+        linear-gradient(180deg, #0a0a0a 0%, var(--mystic-black) 100%);
+    overflow: hidden;
+}
+
+.legend-atmosphere {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle 1000px at 20% 50%, rgba(255, 255, 255, 0.01) 0%, transparent 50%),
+        radial-gradient(circle 800px at 80% 50%, rgba(212, 175, 55, 0.01) 0%, transparent 50%);
+    animation: atmosphereShift 20s ease-in-out infinite;
+}
+
+@keyframes atmosphereShift {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(50px); }
+}
+
+.legend-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.legend-cards {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.floating-card {
+    position: absolute;
+    font-size: 6rem;
+    opacity: 0.02;
+    animation: cardFloat 15s ease-in-out infinite;
+}
+
+.card-spade {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.card-heart {
+    top: 20%;
+    right: 15%;
+    color: var(--mystic-red);
+    animation-delay: 4s;
+}
+
+.card-diamond {
+    bottom: 30%;
+    left: 20%;
+    color: var(--mystic-red);
+    animation-delay: 8s;
+}
+
+.card-club {
+    bottom: 20%;
+    right: 10%;
+    animation-delay: 12s;
+}
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.02; }
+    50% { transform: translateY(-30px) rotate(10deg); opacity: 0.05; }
+}
+
+.legend-story {
+    text-align: center;
+    position: relative;
+}
+
+.legend-title {
+    font-family: 'Amoria', 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    font-weight: normal;
+    color: var(--mystic-white);
+    margin-bottom: 60px;
+    letter-spacing: -1px;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.story-fog {
+    position: absolute;
+    top: 100px;
+    left: -50%;
+    right: -50%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.2) 50%, transparent 100%);
+    animation: fogMove 10s linear infinite;
+}
+
+@keyframes fogMove {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.story-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.story-chapter {
+    margin-bottom: 60px;
+    position: relative;
+    text-align: left;
+    padding-left: 80px;
+}
+
+.chapter-number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--mystic-gold);
+    opacity: 0.3;
+    line-height: 1;
+}
+
+.story-chapter p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+}
+
+.story-chapter strong {
+    color: var(--mystic-gold);
+    font-weight: 600;
+}
+
+/* Divine Realm */
+.divine-realm {
+    padding: 160px 20px;
+    position: relative;
+    background: 
+        radial-gradient(ellipse 150% 100% at 50% 0%, rgba(255, 255, 255, 0.02) 0%, transparent 60%),
+        linear-gradient(180deg, var(--mystic-black) 0%, #0a0a0a 50%, var(--mystic-black) 100%);
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.realm-veil {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle 600px at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+    animation: veilShimmer 8s ease-in-out infinite;
+}
+
+@keyframes veilShimmer {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.realm-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.realm-header {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.realm-title {
+    font-family: 'Amoria', 'Bebas Neue', sans-serif;
+    font-size: 4.5rem;
+    font-weight: normal;
+    background: linear-gradient(135deg, var(--mystic-white) 0%, rgba(255, 255, 255, 0.7) 50%, var(--mystic-white) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+.realm-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.message-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-bottom: 100px;
+}
+
+.divine-card {
+    position: relative;
+    perspective: 1000px;
+    cursor: pointer;
+    min-height: 400px;
+    height: 100%;
+}
+
+.divine-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.divine-card.flipped .divine-card-inner {
+    transform: rotateY(180deg);
+}
+
+.divine-card-front, .divine-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.divine-card-back {
+    transform: rotateY(180deg);
+}
+
+.card-back-pattern {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+    height: 100%;
+}
+
+.card-back-pattern span {
+    font-family: 'Amoria', 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: rgba(212, 175, 55, 0.15);
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+    animation: backPatternGlow 4s ease-in-out infinite;
+}
+
+.card-back-pattern span:nth-child(1) { animation-delay: 0s; }
+.card-back-pattern span:nth-child(2) { animation-delay: 0.3s; }
+.card-back-pattern span:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes backPatternGlow {
+    0%, 100% { opacity: 0.15; transform: scale(1); }
+    50% { opacity: 0.25; transform: scale(1.05); }
+}
+
+.card-aura {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+    animation: auraRotate 20s linear infinite;
+}
+
+@keyframes auraRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.card-content {
+    padding: 60px 50px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.card-symbol {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    display: inline-block;
+    animation: symbolFloat 4s ease-in-out infinite;
+}
+
+@keyframes symbolFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.divine-card h3 {
+    font-family: 'Amoria', 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+    color: var(--mystic-white);
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.divine-card p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+}
+
+.card-mist {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.divine-card:hover .divine-card-front,
+.divine-card:hover .divine-card-back {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+.divine-card:hover .divine-card-back {
+    transform: rotateY(180deg) translateY(-5px);
+}
+
+.divine-card:hover .card-mist {
+    opacity: 1;
+}
+
+.awakening .card-symbol { color: var(--mystic-gold); }
+.fortune .card-symbol { color: var(--mystic-white); }
+.alignment .card-symbol { color: var(--mystic-gold); }
+
+.floating-sevens {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.seven-particle {
+    position: absolute;
+    font-family: 'Amoria', 'Bebas Neue', sans-serif;
+    font-size: 10rem;
+    color: rgba(255, 255, 255, 0.02);
+    animation: sevenFloat 20s linear infinite;
+}
+
+.seven-particle:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.seven-particle:nth-child(2) {
+    left: 50%;
+    animation-delay: 6s;
+    animation-duration: 22s;
+}
+
+.seven-particle:nth-child(3) {
+    left: 80%;
+    animation-delay: 12s;
+    animation-duration: 20s;
+}
+
+@keyframes sevenFloat {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.02; }
+    90% { opacity: 0.02; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/* Mystical Footer */
+.mystical-footer {
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(180deg, #0a0a0a 0%, var(--mystic-black) 100%);
+    overflow: hidden;
+}
+
+.footer-mist {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.2) 50%, transparent 100%);
+}
+
+.footer-whisper {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.footer-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent 0%, var(--mystic-black) 100%);
+    pointer-events: none;
+}
+
+/* Entrance Animation */
+.mystical-entrance.fade-out {
+    opacity: 0;
+    transform: scale(0.98);
+    transition: all 1s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .portal-seven {
+        font-size: 4rem;
+    }
+    
+    .portal-gates {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .legend-title,
+    .realm-title {
+        font-size: 3rem;
+    }
+    
+    .story-chapter {
+        padding-left: 60px;
+    }
+    
+    .chapter-number {
+        font-size: 2rem;
+    }
+    
+    .message-cards {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .divine-card {
+        min-height: 350px;
+    }
+    
+    .divine-card-inner {
+        min-height: 350px;
+    }
+    
+    .divine-card .card-content {
+        padding: 40px 30px;
+    }
+    
+    .seven-particle {
+        font-size: 6rem;
+    }
+    
+    .seven {
+        font-size: 5rem;
+    }
+    
+    .mystical-tagline {
+        font-size: 0.8rem;
+        letter-spacing: 3px;
+    }
+    
+    .social-icons {
+        gap: 15px;
+    }
+    
+    .social-icon {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .seven {
+        font-size: 4rem;
+    }
+    
+    .mystical-tagline {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+    }
+    
+    .social-icon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .fortune-machine {
+        padding: 30px 20px;
+    }
+    
+    .poker-card {
+        width: 60px;
+        height: 90px;
+    }
+    
+    .card-face {
+        font-size: 2rem;
+    }
+    
+    .mystical-btn {
+        padding: 15px 30px;
+        font-size: 0.85rem;
+    }
+    
+    .portal-seven {
+        font-size: 3rem;
+    }
+    
+    .legend-title,
+    .realm-title {
+        font-size: 2.2rem;
+    }
+} 
